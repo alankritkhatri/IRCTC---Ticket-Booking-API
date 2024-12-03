@@ -2,6 +2,7 @@
 
 ## REST APIs for railway ticket booking system built with Node.js, Express, and MySQL and hosted on google cloud run and google cloud sql. This system handles concurrent bookings, user authentication, and admin operations securely.
 
+URL - https://irctc-tickets-314787054684.asia-south1.run.app/ deployed on google cloud and DB on google cloud SQL
 ## Project Setup
 
 1. Clone the Repository - git clone <repository-url>
