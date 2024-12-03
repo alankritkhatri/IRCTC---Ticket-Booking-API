@@ -1,4 +1,4 @@
-# Railway Management System like IRCTC
+![image](https://github.com/user-attachments/assets/a234cbbc-9e0e-450a-9076-df739a38229c)# Railway Management System like IRCTC
 
 ## REST APIs for railway ticket booking system built with Node.js, Express, and MySQL and hosted on google cloud run and google cloud sql. This system handles concurrent bookings, user authentication, and admin operations securely.
 
@@ -8,6 +8,12 @@ URL - https://irctc-tickets-314787054684.asia-south1.run.app/ deployed on google
 1. Clone the Repository - git clone <repository-url>
 2. Install Dependencies - npm install
 3. Database Setup - DB is hosted on Google Cloud SQL and the credentials are stored in the `.env` file . sharing credentials for this assignment ony
+Bookings Table-![image](https://github.com/user-attachments/assets/104d2644-a438-4319-afbe-fb3b299013ac)
+Trains Table - ![image](https://github.com/user-attachments/assets/4b4dc7fd-ffb4-4999-9e3c-33a71ba5fefc)
+
+
+
+
    DB SCHEMA -
    CREATE TABLE users (
    id INT AUTO_INCREMENT PRIMARY KEY,
