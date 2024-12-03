@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/a234cbbc-9e0e-450a-9076-df739a38229c)# Railway Management System like IRCTC
+# Railway Management System like IRCTC
 
 ## REST APIs for railway ticket booking system built with Node.js, Express, and MySQL and hosted on google cloud run and google cloud sql. This system handles concurrent bookings, user authentication, and admin operations securely.
 
