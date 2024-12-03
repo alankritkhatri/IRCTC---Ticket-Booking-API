@@ -83,7 +83,6 @@ GET /api/trains/availability
 - Check train availability
 - Query: { sourceStation, destinationStation }
 
-```
 
 ### Booking Routes
 
