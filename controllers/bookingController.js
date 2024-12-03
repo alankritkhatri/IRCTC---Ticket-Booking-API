@@ -8,6 +8,8 @@ exports.bookSeat = async (req, res) => {
     const userId = req.user.id;
 
     // Check if the train exists and get the seat count
+
+    // HANDLED CONCURRENCY WITH FOR UPDATE HERE
     const [trainData] = await connection.execute(
       `SELECT t.id, t.total_seats, COUNT(b.id) as booked 
        FROM trains t 
@@ -17,7 +19,7 @@ exports.bookSeat = async (req, res) => {
        FOR UPDATE`,
       [bookingDate, trainNumber]
     );
-
+    console.log(trainData);
     if (!trainData.length) {
       throw new Error("Train not found");
     }
@@ -31,7 +33,7 @@ exports.bookSeat = async (req, res) => {
       "INSERT INTO bookings (user_id, train_id, booking_date, seat_number) VALUES (?, ?, ?, ?)",
       [userId, trainData[0].id, bookingDate, seatNumber]
     );
-
+    console.log(booking);
     await connection.commit();
     res.json({
       message: "Booking successful",
@@ -42,6 +44,7 @@ exports.bookSeat = async (req, res) => {
     await connection.rollback();
     res.status(400).json({ error: error.message });
   } finally {
+    // const delay = setTimeout(delay, 5000);
     connection.release();
   }
 };

@@ -11,9 +11,6 @@ URL - https://irctc-tickets-314787054684.asia-south1.run.app/ deployed on google
 Bookings Table-![image](https://github.com/user-attachments/assets/104d2644-a438-4319-afbe-fb3b299013ac)
 Trains Table - ![image](https://github.com/user-attachments/assets/4b4dc7fd-ffb4-4999-9e3c-33a71ba5fefc)
 
-
-
-
    DB SCHEMA -
    CREATE TABLE users (
    id INT AUTO_INCREMENT PRIMARY KEY,

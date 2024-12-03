@@ -5,7 +5,7 @@ const bookSeat = async () => {
     const response = await axios.post(
       "http://localhost:3000/api/bookings/book",
       {
-        trainNumber: "523",
+        trainNumber: "234",
         bookingDate: "2024-12-15",
       },
       {
@@ -21,7 +21,7 @@ const bookSeat = async () => {
   }
 };
 
-// adjust the number of concurrent requests as per your need
-for (let i = 0; i < 90; i++) {
+// adjust the number of multiple requests as per your need
+for (let i = 0; i < 2; i++) {
   bookSeat();
 }
