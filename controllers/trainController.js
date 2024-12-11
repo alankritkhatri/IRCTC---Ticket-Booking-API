@@ -66,13 +66,46 @@ exports.getAvailability = async (req, res) => {
     }
 
     const [trains] = await connection.execute(
-      `SELECT t.*,
-            (t.total_seats - IFNULL(SUM(b.status = 'confirmed'), 0)) as available_seats
-            FROM trains t
-            LEFT JOIN bookings b ON b.train_id = t.id
-            WHERE t.source_station = ? AND t.destination_station = ?
-            GROUP BY t.id`,
+      `SELECT trains.id, 
+              trains.train_number, 
+              trains.train_name, 
+              trains.source_station, 
+              trains.destination_station, 
+              trains.total_seats, 
+              trains.created_at, 
+              trains.train_date,
+              (trains.total_seats - COALESCE(SUM(bookings.status = 'confirmed'), 0)) AS available_seats
+       FROM trains 
+      LEFT JOIN bookings ON bookings.train_id = trains.id AND bookings.status = 'confirmed'
+       WHERE trains.source_station = ? AND trains.destination_station = ?
+       GROUP BY trains.id`,
       [sourceStation, destinationStation]
+    );
+
+    res.json(trains);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  } finally {
+    connection.release();
+  }
+};
+exports.getAvailabilityAll = async (req, res) => {
+  const connection = await db.getConnection();
+  try {
+    const [trains] = await connection.execute(
+      `SELECT trains.id, 
+              trains.train_number, 
+              trains.train_name, 
+              trains.source_station, 
+              trains.destination_station, 
+              trains.total_seats, 
+              trains.created_at, 
+              trains.train_date,
+              (trains.total_seats - COALESCE(SUM(bookings.status = 'confirmed'), 0)) AS available_seats
+       FROM trains 
+        LEFT JOIN bookings ON bookings.train_id = trains.id AND bookings.status = 'confirmed'
+       GROUP BY trains.id`
     );
 
     res.json(trains);

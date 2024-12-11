@@ -4,6 +4,7 @@ const trainController = require("../controllers/trainController");
 const auth = require("../middleware/auth");
 const adminAuth = require("../middleware/adminAuth");
 router.post("/add", adminAuth, trainController.addTrain);
-router.get("/availability", trainController.getAvailability);
+router.post("/availability", trainController.getAvailability);
+router.get("/availability/all", trainController.getAvailabilityAll);
 
 module.exports = router;

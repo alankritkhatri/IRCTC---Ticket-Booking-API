@@ -4,25 +4,25 @@ const jwt = require("jsonwebtoken");
 
 exports.register = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, role } = req.body;
 
     if (
-      !name ||
-      !email ||
-      !password ||
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+      (!name || !email || !password || !role,
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
     ) {
       return res.status(400).json({
         error:
-          !name || !email || !password ? "Enter All Fields" : "Invalid email",
+          !name || !email || !password || !role
+            ? "Enter All Fields"
+            : "Invalid email",
       });
     }
 
     const [existingUsers] = await db.execute(
-      "SELECT * FROM users WHERE email = ? OR name = ?",
-      [email, name]
+      "SELECT * FROM users WHERE email = ?",
+      [email]
     );
-
+    console.log(existingUsers);
     if (existingUsers.length > 0) {
       return res.status(400).json({ error: "User already exists" });
     }
@@ -31,7 +31,7 @@ exports.register = async (req, res) => {
 
     const [result] = await db.execute(
       "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)",
-      [name, email, hashedPassword, "user"]
+      [name, email, hashedPassword, role]
     );
 
     res.status(201).json({ message: "User registered" });
