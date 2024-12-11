@@ -46,17 +46,24 @@ FOREIGN KEY (train_id) REFERENCES trains(id)
    I Have pushed the `.env` file to the repository for this assignment only.
 
 env
-DB_HOST=35.200.175.155
-DB_USER=root
+DB_HOST=35.200.175.155  
+
+DB_USER=root  
+
 DB_PASSWORD= UHUWGHBEUYBEYU@@*@*U&^%$*U*&^%$*&^%$*&^%$fa56615123
-DB_NAME=irctc_db
+
+DB_NAME=irctc_db  
+
 JWT_SECRET=duiandihguhgueg78h832y8273huh82h89h422dewjiuhfuh873h7G87Girctcdb
 duiandihguhgueg78h832y8273huh82h89h42DEEEDDfuh873h7G87G783g87g378783g87g37irctcdbduiandihguhgueg78h832y8273huh82h89h422dewjiuhfuh873h7G87G783g87g3788&&^%$Tirctcdb
 duiandihguhgueg78h832y8273huh82h89h422dewjiuhfuh873h7G87G783g87g378&@T&*@T*&^%$GHGdjuh*&H*&H&^%$*UG*&BUIB*U&^%$@@CCE*&^%$G*&G*GG&^%$F*H&^%$*&^%$GBUIGH*UH&^%$D@G&GDDDDDDDDDDDDDDDDDD&^%$
 duiandihguhgueg78h832y8273huh82h89h422dewjiuhfuh873h7G87Girctcdb
-duiandihguhgueg78h832y8273huh82h89h42DEEEDDfuh873h7G87G783g87g378783g87g37irctcdbduiandihguhgueg78h832y8273huh82h89h422dewjiuhfuh873h7G87G783g87g3788&&^%$Tirctc
-ADMIN_API_KEY=ndiahnuihd983h89hu7g9G*&G8*HF*djIHSD*@HHIFJHH
-PORT=3000
+duiandihguhgueg78h832y8273huh82h89h42DEEEDDfuh873h7G87G783g87g378783g87g37irctcdbduiandihguhgueg78h832y8273huh82h89h422dewjiuhfuh873h7G87G783g87g3788&&^%$Tirctc  
+
+ADMIN_API_KEY=ndiahnuihd983h89hu7g9G*&G8*HF*djIHSD*@HHIFJHH  
+
+PORT=3000  
+
 ALLOWED_ORIGINS= * 
 
 5. Running the Application - npm start
